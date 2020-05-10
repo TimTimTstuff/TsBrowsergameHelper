@@ -1,8 +1,8 @@
 {
   "name": "@timtimtstuff/tstuffgametools",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Browsergame tools",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
