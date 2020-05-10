@@ -1,10 +1,13 @@
 {
-  "name": "jsgamesetup",
-  "version": "1.0.0",
-  "description": "Boilerplate for TS/Pixi/Webpack",
+  "name": "@timtimtstuff/tstuffgametools",
+  "version": "1.0.1",
+  "description": "Browsergame tools",
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/timtimtstuff"
   },
   "author": "Timo Kesselring",
   "license": "MIT",
@@ -18,5 +21,16 @@
     "ts-loader": "^6.2.1",
     "css-loader": "^3.4.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimTimTstuff/TsBrowsergameHelper.git"
+  },
+  "keywords": [
+    "browsergame"
+  ],
+  "bugs": {
+    "url": "https://github.com/TimTimTstuff/TsBrowsergameHelper/issues"
+  },
+  "homepage": "https://github.com/TimTimTstuff/TsBrowsergameHelper#readme"
 }
