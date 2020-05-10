@@ -1,9 +1,9 @@
 {
   "name": "@timtimtstuff/tstuffgametools",
-  "version": "1.0.10",
+  "version": "1.0.15",
   "description": "Browsergame tools",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "distj/index.js",
+  "types": "distj/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

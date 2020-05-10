@@ -1,0 +1,1 @@
+{"version":3,"file":"FpsReport.d.ts","sourceRoot":"","sources":["../../../../src/game/gameloop/FpsReport.ts"],"names":[],"mappings":"AACA,qBAAa,SAAS;IAClB,OAAO,CAAC,WAAW,CAAU;IAC7B,OAAO,CAAC,eAAe,CAAQ;IAC/B,OAAO,CAAC,UAAU,CAAI;IACtB,OAAO,CAAC,QAAQ,CAAI;IAEpB;;OAEG;gBACS,UAAU,EAAE,MAAM;IAQvB,YAAY,CAAC,SAAS,EAAE,MAAM;CAWxC"}
