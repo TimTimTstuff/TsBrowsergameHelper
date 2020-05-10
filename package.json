@@ -1,6 +1,6 @@
 {
   "name": "@timtimtstuff/tstuffgametools",
-  "version": "1.0.6",
+  "version": "1.0.10",
   "description": "Browsergame tools",
   "main": "index.ts",
   "scripts": {
@@ -32,6 +32,5 @@
   "bugs": {
     "url": "https://github.com/TimTimTstuff/TsBrowsergameHelper/issues"
   },
-  "homepage": "https://github.com/TimTimTstuff/TsBrowsergameHelper#readme",
-  "files": ["./lib"]
+  "homepage": "https://github.com/TimTimTstuff/TsBrowsergameHelper#readme"
 }
