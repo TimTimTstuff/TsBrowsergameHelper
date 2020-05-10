@@ -6,6 +6,7 @@ module.exports = {
   // devtool: 'inline-source-map',
   entry: './src/index.ts',
   output: {
+    path: 'lib'
     filename: 'tstuff.lib.js'
   },
   resolve: {
