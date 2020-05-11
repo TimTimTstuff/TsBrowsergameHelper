@@ -80,4 +80,3 @@ var GameLoop = /** @class */ (function () {
     return GameLoop;
 }());
 exports.GameLoop = GameLoop;
-//# sourceMappingURL=GameLoop.js.map

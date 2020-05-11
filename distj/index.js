@@ -1,6 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var TStuffGame_1 = require("./src/game/TStuffGame");
-exports.GameLoop = TStuffGame_1.GameLoop;
-exports.FPSReport = TStuffGame_1.FPSReport;
-//# sourceMappingURL=index.js.map
+// Export all Components
+__export(require("./src/game/TStuffGame"));

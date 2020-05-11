@@ -24,4 +24,3 @@ var FPSReport = /** @class */ (function () {
     return FPSReport;
 }());
 exports.FPSReport = FPSReport;
-//# sourceMappingURL=FpsReport.js.map

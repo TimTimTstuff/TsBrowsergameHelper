@@ -26,7 +26,7 @@ export class GameLoopTest {
         })
 
         loop.addFixUpdate(() => {
-            console.log(`Call me Fixed: ${GameLoop.totalTime}`)
+            console.log(`Call me Fixed1: ${GameLoop.totalTime}`)
         })
 
         loop.start()
