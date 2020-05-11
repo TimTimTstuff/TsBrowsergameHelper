@@ -1,1 +1,1 @@
-{"version":3,"file":"TStuffGame.d.ts","sourceRoot":"","sources":["../../../src/game/TStuffGame.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,qBAAqB,CAAA;AAC9C,OAAO,EAAE,SAAS,EAAE,MAAM,sBAAsB,CAAA"}
+{"version":3,"file":"TStuffGame.d.ts","sourceRoot":"","sources":["../../../src/game/TStuffGame.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,qBAAqB,CAAA;AAC9C,OAAO,EAAE,SAAS,EAAE,MAAM,sBAAsB,CAAA;AAChD,OAAO,EAAC,qBAAqB,EAAC,MAAM,mCAAmC,CAAA;AACvE,OAAO,EAAC,cAAc,EAAC,MAAM,4BAA4B,CAAA"}

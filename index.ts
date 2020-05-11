@@ -1,1 +1,1 @@
-export {GameLoop,FPSReport} from './src/game/TStuffGame'
+export {GameLoop,FPSReport, GameLoopEventRegister, IGameLoopEvent} from './src/game/TStuffGame'
