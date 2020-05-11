@@ -9,4 +9,3 @@ export declare class FPSReport {
     constructor(sampleSize: number);
     calculateFps(deltaTime: number): number;
 }
-//# sourceMappingURL=FpsReport.d.ts.map

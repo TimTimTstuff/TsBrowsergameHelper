@@ -4,4 +4,3 @@ export interface IGameLoopEvent {
     update: (() => void) | undefined;
     fixedUpdate: (() => void) | undefined;
 }
-//# sourceMappingURL=IGameLoopEvent.d.ts.map

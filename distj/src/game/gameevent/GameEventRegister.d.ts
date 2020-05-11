@@ -5,4 +5,3 @@ export declare class GameEventRegister {
     unregisterEvent(event: IGameEvent | string): void;
     callEvent(eventType: string, caller: any, arg: any, throwErrorIfMissing?: boolean): void;
 }
-//# sourceMappingURL=GameEventRegister.d.ts.map

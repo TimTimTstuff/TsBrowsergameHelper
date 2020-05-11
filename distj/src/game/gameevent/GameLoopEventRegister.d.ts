@@ -10,4 +10,3 @@ export declare class GameLoopEventRegister {
     callAllUpdateEvents(): void;
     callAllFixedUpdateEvents(): void;
 }
-//# sourceMappingURL=GameLoopEventRegister.d.ts.map

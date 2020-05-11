@@ -39,4 +39,3 @@ export declare class GameLoop {
      */
     private callRequestFrame;
 }
-//# sourceMappingURL=GameLoop.d.ts.map
