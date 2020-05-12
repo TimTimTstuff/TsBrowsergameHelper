@@ -8,5 +8,5 @@ var GameLoopEventRegister_1 = require("./gameevent/GameLoopEventRegister");
 exports.GameLoopEventRegister = GameLoopEventRegister_1.GameLoopEventRegister;
 var GameEventRegister_1 = require("./gameevent/GameEventRegister");
 exports.GameEventRegister = GameEventRegister_1.GameEventRegister;
-var SaveHandler_1 = require("./gamesave/SaveHandler");
-exports.SaveHandler = SaveHandler_1.SaveHandler;
+var LocalStorageSaveHandler_1 = require("./gamesave/LocalStorageSaveHandler");
+exports.LocalStorageSaveHandler = LocalStorageSaveHandler_1.LocalStorageSaveHandler;
