@@ -1,9 +1,9 @@
-import { GameLoop, ISaveHandler, LocalStorageSaveHandler } from "../src/game/TStuffGame"
+import * as TGame from '../src/game/TStuffGame'
 
 export class GameSaveTest {
     public run() {
-        const loop = new GameLoop(2000)
-const sh: ISaveHandler = new LocalStorageSaveHandler('gamesave_abc')
+        const loop = new TGame.GameLoop(2000)
+const sh: TGame.ISaveHandler = new TGame.LocalStorageSaveHandler('gamesave_abc')
 let test = {i: 0}
 sh.saveCreated = () => {
     console.log("Save created")
