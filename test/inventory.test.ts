@@ -1,12 +1,10 @@
 import { expect } from 'chai'
-import { NumberAttributeBag, NumberAttributeType } from '../src/game/attributes'
-import { Inventory } from '../src/game/inventory'
-import { GameError_Inventory, GameErrorMessage, GameError } from '../src/game/gameerrors'
+import * as TGame from '../index'
 
 describe('Inventory Tests', () => {
 
-    function getInventory():Inventory {
-        let inv = new Inventory()
+    function getInventory():TGame.Inventory {
+        let inv = new TGame.Inventory()
         return inv
     }
 
@@ -25,7 +23,7 @@ describe('Inventory Tests', () => {
             message = ex.error
         }
         
-        expect(GameError_Inventory.ItemDoesNotExist).to.eq(message)
+        expect(TGame.GameError_Inventory.ItemDoesNotExist).to.eq(message)
     })
 
     it('Add item amount and get amount',() => {
@@ -65,12 +63,12 @@ describe('Inventory Save Test', () => {
 
     it('Save inventory and load', () => {
         
-        let inv = new Inventory()
+        let inv = new TGame.Inventory()
         inv.createItem({name:'i1', maxamount:10, amount:5, data:null})
         inv.createItem({name:'i2', maxamount:20, amount:10, data:null})
         inv.createItem({name:'i3', maxamount:30, amount:15, data:null})
        
-        let inv2 = new Inventory(JSON.parse(JSON.stringify(inv.getInventoryObject())))
+        let inv2 = new TGame.Inventory(JSON.parse(JSON.stringify(inv.getInventoryObject())))
         expect(['i1','i2','i3']).eql(inv2.getAllItemNames())
         inv.addItem('i1',5)
         expect(10).eq(inv.getItemAmount('i1'))

@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var GameLoop = /** @class */ (function () {
+class GameLoop {
     /**
      *
      */
-    function GameLoop(fixedUpdateTime) {
-        if (fixedUpdateTime === void 0) { fixedUpdateTime = 100; }
+    constructor(fixedUpdateTime = 100) {
         /**
          * Settings
          */
@@ -23,60 +22,58 @@ var GameLoop = /** @class */ (function () {
      * @param callBack callback method which is called each frame
      * @returns number index of the callback
      */
-    GameLoop.prototype.addUpdate = function (callBack) {
+    addUpdate(callBack) {
         this._updateCallList.push(callBack);
         return this._updateCallList.length - 1;
-    };
-    GameLoop.prototype.removeUpdate = function (index) {
+    }
+    removeUpdate(index) {
         this._updateCallList[index] = null;
-    };
+    }
     /**
      *
      * @param callBack callback method which is called each frame
      * @returns number index of the callback
      */
-    GameLoop.prototype.addFixUpdate = function (callBack) {
+    addFixUpdate(callBack) {
         this._fixedUpdateCallList.push(callBack);
         return this._fixedUpdateCallList.length - 1;
-    };
-    GameLoop.prototype.removeFixUpdate = function (index) {
+    }
+    removeFixUpdate(index) {
         this._fixedUpdateCallList[index] = null;
-    };
-    GameLoop.prototype.start = function () {
+    }
+    start() {
         this._running = true;
-    };
-    GameLoop.prototype.stop = function () {
+    }
+    stop() {
         this._running = false;
-    };
-    GameLoop.prototype.runUpdate = function () {
+    }
+    runUpdate() {
         if (this._fixedUpdateElapsed >= this._fixedUpdateTime) {
-            this._fixedUpdateCallList.forEach(function (cb) {
+            this._fixedUpdateCallList.forEach(cb => {
                 if (cb !== null)
                     cb();
             });
             this._fixedUpdateElapsed = this._fixedUpdateElapsed - this._fixedUpdateTime;
         }
-        this._updateCallList.forEach(function (cb) {
+        this._updateCallList.forEach(cb => {
             if (cb !== null)
                 cb();
         });
         this._fixedUpdateElapsed += GameLoop.deltaTime;
-    };
+    }
     /**
      * Recursive update calling
      */
-    GameLoop.prototype.callRequestFrame = function () {
-        var _this = this;
-        requestAnimationFrame(function (time) {
-            if (_this._running) {
-                GameLoop.deltaTime = Math.round((time - _this._lastFrameTime) * 1000) / 1000;
+    callRequestFrame() {
+        requestAnimationFrame((time) => {
+            if (this._running) {
+                GameLoop.deltaTime = Math.round((time - this._lastFrameTime) * 1000) / 1000;
                 GameLoop.totalTime = time;
-                _this.runUpdate();
-                _this._lastFrameTime = time;
+                this.runUpdate();
+                this._lastFrameTime = time;
             }
-            _this.callRequestFrame();
+            this.callRequestFrame();
         });
-    };
-    return GameLoop;
-}());
+    }
+}
 exports.GameLoop = GameLoop;

@@ -1,12 +1,18 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var GameLoop_1 = require("./gameloop/GameLoop");
-exports.GameLoop = GameLoop_1.GameLoop;
-var FpsReport_1 = require("./gameloop/FpsReport");
-exports.FPSReport = FpsReport_1.FPSReport;
-var GameLoopEventRegister_1 = require("./gameevent/GameLoopEventRegister");
-exports.GameLoopEventRegister = GameLoopEventRegister_1.GameLoopEventRegister;
-var GameEventRegister_1 = require("./gameevent/GameEventRegister");
-exports.GameEventRegister = GameEventRegister_1.GameEventRegister;
-var LocalStorageSaveHandler_1 = require("./gamesave/LocalStorageSaveHandler");
-exports.LocalStorageSaveHandler = LocalStorageSaveHandler_1.LocalStorageSaveHandler;
+/*export { GameLoop } from './gameloop/GameLoop'
+export { FPSReport } from './gameloop/FpsReport'
+export { GameLoopEventRegister } from './gameevent/GameLoopEventRegister'
+export { IGameLoopEvent } from './gameevent/IGameLoopEvent'
+export { GameEventRegister } from './gameevent/GameEventRegister'
+export { IGameEvent } from './gameevent/IGameEvent'
+export { LocalStorageSaveHandler } from './gamesave/LocalStorageSaveHandler'
+export { ISaveHandler } from './gamesave/ISaveHandler'*/
+__export(require("./attributes"));
+__export(require("./gameevent"));
+__export(require("./gameloop"));
+__export(require("./gamesave"));
+__export(require("./inventory"));

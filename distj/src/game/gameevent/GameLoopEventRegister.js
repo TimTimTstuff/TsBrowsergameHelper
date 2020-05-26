@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var GameLoopEventRegister = /** @class */ (function () {
-    function GameLoopEventRegister() {
+class GameLoopEventRegister {
+    constructor() {
         this._updateEventIndex = [];
         this._fixedUpateEventIndex = [];
         this._loopEvents = {};
     }
-    GameLoopEventRegister.getEventId = function () {
-        return "EID_" + this.EVENTID++;
-    };
-    GameLoopEventRegister.prototype.registerEvent = function (loopEvent) {
-        var currId = GameLoopEventRegister.getEventId();
+    static getEventId() {
+        return `EID_${this.EVENTID++}`;
+    }
+    registerEvent(loopEvent) {
+        let currId = GameLoopEventRegister.getEventId();
         this._loopEvents[currId] = loopEvent;
         loopEvent.EVID = currId;
         if (loopEvent.update != undefined) {
@@ -19,40 +19,37 @@ var GameLoopEventRegister = /** @class */ (function () {
         if (loopEvent.fixedUpdate != undefined) {
             this._fixedUpateEventIndex.push(currId);
         }
-    };
-    GameLoopEventRegister.prototype.unregisterEvent = function (event) {
-        var idToRemove = "";
+    }
+    unregisterEvent(event) {
+        let idToRemove = "";
         if (event.EVID !== undefined) {
             idToRemove = event.EVID;
         }
         else {
             idToRemove = event;
         }
-        var indexOfUpdate = this._updateEventIndex.indexOf(idToRemove);
+        let indexOfUpdate = this._updateEventIndex.indexOf(idToRemove);
         if (indexOfUpdate != -1) {
             this._updateEventIndex.splice(indexOfUpdate, 1);
         }
-        var indexOfFixedUpdate = this._fixedUpateEventIndex.indexOf(idToRemove);
+        let indexOfFixedUpdate = this._fixedUpateEventIndex.indexOf(idToRemove);
         if (indexOfFixedUpdate != -1) {
             this._fixedUpateEventIndex.splice(indexOfFixedUpdate, 1);
         }
         delete this._loopEvents[idToRemove];
-    };
-    GameLoopEventRegister.prototype.callAllUpdateEvents = function () {
-        var _this = this;
-        this._updateEventIndex.forEach(function (ui) {
-            if (_this._loopEvents[ui].isEnabled())
-                _this._loopEvents[ui].update();
+    }
+    callAllUpdateEvents() {
+        this._updateEventIndex.forEach(ui => {
+            if (this._loopEvents[ui].isEnabled())
+                this._loopEvents[ui].update();
         });
-    };
-    GameLoopEventRegister.prototype.callAllFixedUpdateEvents = function () {
-        var _this = this;
-        this._fixedUpateEventIndex.forEach(function (ui) {
-            if (_this._loopEvents[ui].isEnabled())
-                _this._loopEvents[ui].fixedUpdate();
+    }
+    callAllFixedUpdateEvents() {
+        this._fixedUpateEventIndex.forEach(ui => {
+            if (this._loopEvents[ui].isEnabled())
+                this._loopEvents[ui].fixedUpdate();
         });
-    };
-    GameLoopEventRegister.EVENTID = 0;
-    return GameLoopEventRegister;
-}());
+    }
+}
 exports.GameLoopEventRegister = GameLoopEventRegister;
+GameLoopEventRegister.EVENTID = 0;

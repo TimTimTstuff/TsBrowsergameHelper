@@ -1,37 +1,41 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var TStuffGame_1 = require("../src/game/TStuffGame");
-var GameSaveTest = /** @class */ (function () {
-    function GameSaveTest() {
-    }
-    GameSaveTest.prototype.run = function () {
-        var loop = new TStuffGame_1.GameLoop(2000);
-        var sh = new TStuffGame_1.LocalStorageSaveHandler('gamesave_abc');
-        var test = { i: 0 };
-        sh.saveCreated = function () {
+const TGame = __importStar(require("../src/game/TStuffGame"));
+class GameSaveTest {
+    run() {
+        const loop = new TGame.GameLoop(2000);
+        const sh = new TGame.LocalStorageSaveHandler('gamesave_abc');
+        let test = { i: 0 };
+        sh.saveCreated = () => {
             console.log("Save created");
         };
-        sh.saveFileCorrupted = function () {
+        sh.saveFileCorrupted = () => {
             console.log("Save file corrupted");
         };
-        sh.saveLoaded = function () {
+        sh.saveLoaded = () => {
             console.log("Save Loaded!");
             test = sh.getSaveObject('a');
         };
-        sh.saveNotFound = function () {
+        sh.saveNotFound = () => {
             console.log("Save not found!");
             sh.addSaveObject('a', test);
         };
         sh.initializeSave();
-        loop.addUpdate(function () {
+        loop.addUpdate(() => {
             test.i++;
         });
-        loop.addFixUpdate(function () {
+        loop.addFixUpdate(() => {
             sh.saveFile();
             console.log(test);
         });
         loop.start();
-    };
-    return GameSaveTest;
-}());
+    }
+}
 exports.GameSaveTest = GameSaveTest;
