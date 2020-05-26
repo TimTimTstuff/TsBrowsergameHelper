@@ -16,3 +16,4 @@ __export(require("./gameevent"));
 __export(require("./gameloop"));
 __export(require("./gamesave"));
 __export(require("./inventory"));
+__export(require("./gameerrors"));

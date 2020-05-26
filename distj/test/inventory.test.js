@@ -1,11 +1,17 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const chai_1 = require("chai");
-const inventory_1 = require("../src/game/inventory");
-const gameerrors_1 = require("../src/game/gameerrors");
+const TGame = __importStar(require("../index"));
 describe('Inventory Tests', () => {
     function getInventory() {
-        let inv = new inventory_1.Inventory();
+        let inv = new TGame.Inventory();
         return inv;
     }
     it('Add item validate its existence', () => {
@@ -22,7 +28,7 @@ describe('Inventory Tests', () => {
         catch (ex) {
             message = ex.error;
         }
-        chai_1.expect(gameerrors_1.GameError_Inventory.ItemDoesNotExist).to.eq(message);
+        chai_1.expect(TGame.GameError_Inventory.ItemDoesNotExist).to.eq(message);
     });
     it('Add item amount and get amount', () => {
         let inv = getInventory();
@@ -54,11 +60,11 @@ describe('Inventory Tests', () => {
 });
 describe('Inventory Save Test', () => {
     it('Save inventory and load', () => {
-        let inv = new inventory_1.Inventory();
+        let inv = new TGame.Inventory();
         inv.createItem({ name: 'i1', maxamount: 10, amount: 5, data: null });
         inv.createItem({ name: 'i2', maxamount: 20, amount: 10, data: null });
         inv.createItem({ name: 'i3', maxamount: 30, amount: 15, data: null });
-        let inv2 = new inventory_1.Inventory(JSON.parse(JSON.stringify(inv.getInventoryObject())));
+        let inv2 = new TGame.Inventory(JSON.parse(JSON.stringify(inv.getInventoryObject())));
         chai_1.expect(['i1', 'i2', 'i3']).eql(inv2.getAllItemNames());
         inv.addItem('i1', 5);
         chai_1.expect(10).eq(inv.getItemAmount('i1'));
