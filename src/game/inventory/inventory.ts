@@ -1,7 +1,17 @@
 import { GameError_Inventory, GameError } from "../gameerrors"
 
 export class Inventory{
+
     private _items: {[index:string]:Item} = {}
+
+    /**
+     *
+     */
+    constructor(items?:{[index:string]:Item}) {
+        if(items != undefined)
+            this._items = items
+        
+    }
     
     /**
      * Creates a slot for an item in the Inventory. Items have to be create before they can be used by the Inventory
@@ -95,6 +105,10 @@ export class Inventory{
     public hasSpace(item:string, amount:number) : boolean {
         if(!this.hasItem(item)) return true
         return this._items[item].maxamount == 0 || this._items[item].amount + amount <= this._items[item].maxamount
+    }
+
+    public getInventoryObject():{[index:string]:Item} {
+        return this._items
     }
 }
 

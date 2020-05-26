@@ -60,3 +60,21 @@ describe('Inventory Tests', () => {
     })
 
 })
+
+describe('Inventory Save Test', () => {
+
+    it('Save inventory and load', () => {
+        
+        let inv = new Inventory()
+        inv.createItem({name:'i1', maxamount:10, amount:5, data:null})
+        inv.createItem({name:'i2', maxamount:20, amount:10, data:null})
+        inv.createItem({name:'i3', maxamount:30, amount:15, data:null})
+       
+        let inv2 = new Inventory(JSON.parse(JSON.stringify(inv.getInventoryObject())))
+        expect(['i1','i2','i3']).eql(inv2.getAllItemNames())
+        inv.addItem('i1',5)
+        expect(10).eq(inv.getItemAmount('i1'))
+        expect(5).eq(inv2.getItemAmount('i1'))
+    })
+
+})
