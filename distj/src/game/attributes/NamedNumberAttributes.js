@@ -7,7 +7,7 @@ class NamedNumberAttributes {
         this._attributeNameList = [];
     }
     attributeExists(name) {
-        return this._attributes[name] === undefined;
+        return this._attributes[name] !== undefined;
     }
     addAttribute(name, attr) {
         if (!this.attributeExists(name))

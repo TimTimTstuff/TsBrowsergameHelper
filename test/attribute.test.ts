@@ -2,6 +2,34 @@ import { expect } from 'chai'
 import { NumberAttributeBag, NumberAttributeType, NamedNumberAttributes } from '../src/game/attributes'
 
 
+describe('Attribute Serialization', () => {
+  
+    it('build',() => {
+    let nm = new NamedNumberAttributes()
+    nm.addAttribute('str',{key:'base', type:NumberAttributeType.FIXED_VALUE, value: 100})
+    nm.addAttribute('hp', {key:'base', type:NumberAttributeType.FIXED_VALUE, value:250})
+
+    nm.addAttribute('hp',{key:'buff1', type:NumberAttributeType.PERCENTAGE_ADD, value:1})
+    nm.addAttribute('hp',{key:'buff2', type:NumberAttributeType.PERCENTAGE_ADD, value:0.1})
+    nm.addAttribute('hp',{key:'buff3', type:NumberAttributeType.PERCENTAGE_ADD, value:0.15})
+    nm.addAttribute('hp',{key:'buff4', type:NumberAttributeType.PERCENTAGE_ADD, value:0.0123})
+
+    nm.addAttribute('str',{key:'buff1', type:NumberAttributeType.PERCENTAGE_MULT, value:0.1})
+    nm.addAttribute('str',{key:'buff2', type:NumberAttributeType.PERCENTAGE_MULT, value:0.1})
+    nm.addAttribute('str',{key:'buff3', type:NumberAttributeType.PERCENTAGE_MULT, value:0.1})
+    nm.addAttribute('str',{key:'buff4', type:NumberAttributeType.PERCENTAGE_MULT, value:0.1})
+    nm.addAttribute('str',{key:'buff5', type:NumberAttributeType.PERCENTAGE_MULT, value:0.1})
+    
+    
+
+    var x = nm.getSaveObject()
+
+    let nm2 = new NamedNumberAttributes(JSON.parse(JSON.stringify(x)))
+    expect(nm.getAttributeValue('hp'),nm.getAttributeValue('hp').toString()).eq(nm2.getAttributeValue('hp'))
+    expect(nm.getAttributeValue('str'),nm.getAttributeValue('str').toString()).eq(nm2.getAttributeValue('str'))
+})
+})
+
 describe('Named NumberAttributes', () => {
 
     it('Named Attributes',()=>{

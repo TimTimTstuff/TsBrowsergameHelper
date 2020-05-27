@@ -2,6 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const chai_1 = require("chai");
 const attributes_1 = require("../src/game/attributes");
+describe('Named NumberAttributes', () => {
+    it('Named Attributes', () => {
+        let nm = new attributes_1.NamedNumberAttributes();
+        nm.addAttribute('str', { key: 'base', type: attributes_1.NumberAttributeType.FIXED_VALUE, value: 100 });
+        nm.addAttribute('hp', { key: 'base', type: attributes_1.NumberAttributeType.FIXED_VALUE, value: 250 });
+        nm.addAttribute('hp', { key: 'buff1', type: attributes_1.NumberAttributeType.PERCENTAGE_ADD, value: 1 });
+        chai_1.expect(nm.getAttributeValue('str')).eq(100);
+        chai_1.expect(nm.getAttributeValue('hp')).eq(500);
+    });
+});
 describe('Numberattribute Tests', () => {
     var numlist;
     function resetData() {

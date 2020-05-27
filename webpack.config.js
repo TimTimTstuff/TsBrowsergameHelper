@@ -1,6 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 module.exports = {
-  watch: true,
+  watch: false,
   mode: 'development',
   // mode: 'production',
   // devtool: 'inline-source-map',

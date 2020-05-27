@@ -1,9 +1,22 @@
 import { NumberAttribute, NumberAttributeType } from './NumberAttribute'
 
 export class NumberAttributeBag {
+    
+   
 
     private _values : NumberAttribute[] = []
     private _calculatedValue : number = 0;
+ 
+    public getSaveObject(): any {
+        return this._values
+    }
+
+    constructor(numAttributes?: NumberAttribute[]) {
+        if(numAttributes != undefined){
+            this._values = numAttributes
+            this.calculateValue()
+        }
+    }
 
     public getValue(): number {
         return this._calculatedValue
