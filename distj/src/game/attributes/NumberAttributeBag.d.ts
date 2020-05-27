@@ -2,6 +2,8 @@ import { NumberAttribute } from './NumberAttribute';
 export declare class NumberAttributeBag {
     private _values;
     private _calculatedValue;
+    getSaveObject(): any;
+    constructor(numAttributes?: NumberAttribute[]);
     getValue(): number;
     getAttributeList(): NumberAttribute[];
     private calculateValue;

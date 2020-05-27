@@ -3,6 +3,4 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-// Export all Components
-__export(require("./src/game/TStuffGame"));
-__export(require("./src/html/TSTuffHtml"));
+__export(require("./renderer/renderer"));

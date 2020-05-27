@@ -2,9 +2,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const NumberAttributeBag_1 = require("./NumberAttributeBag");
 class NamedNumberAttributes {
-    constructor() {
+    constructor(attr) {
         this._attributes = {};
         this._attributeNameList = [];
+        if (attr == undefined)
+            return;
+        Object.keys(attr).forEach(k => {
+            attr[k].forEach(kv => {
+                this.addAttribute(k, kv);
+            });
+        });
+    }
+    getSaveObject() {
+        let nnaExport = {};
+        Object.keys(this._attributes).forEach(k => {
+            nnaExport[k] = this._attributes[k].getSaveObject();
+        });
+        return nnaExport;
     }
     attributeExists(name) {
         return this._attributes[name] !== undefined;

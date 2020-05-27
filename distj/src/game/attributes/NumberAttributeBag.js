@@ -2,9 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const NumberAttribute_1 = require("./NumberAttribute");
 class NumberAttributeBag {
-    constructor() {
+    constructor(numAttributes) {
         this._values = [];
         this._calculatedValue = 0;
+        if (numAttributes != undefined) {
+            this._values = numAttributes;
+            this.calculateValue();
+        }
+    }
+    getSaveObject() {
+        return this._values;
     }
     getValue() {
         return this._calculatedValue;
