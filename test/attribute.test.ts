@@ -1,5 +1,22 @@
 import { expect } from 'chai'
-import { NumberAttributeBag, NumberAttributeType } from '../src/game/attributes'
+import { NumberAttributeBag, NumberAttributeType, NamedNumberAttributes } from '../src/game/attributes'
+
+
+describe('Named NumberAttributes', () => {
+
+    it('Named Attributes',()=>{
+        let nm = new NamedNumberAttributes()
+        nm.addAttribute('str',{key:'base', type:NumberAttributeType.FIXED_VALUE, value: 100})
+        nm.addAttribute('hp', {key:'base', type:NumberAttributeType.FIXED_VALUE, value:250})
+
+        nm.addAttribute('hp',{key:'buff1', type:NumberAttributeType.PERCENTAGE_ADD, value:1})
+
+        expect(nm.getAttributeValue('str')).eq(100)
+        expect(nm.getAttributeValue('hp')).eq(500)
+
+    })
+
+})
 
 describe('Numberattribute Tests', () => {
 

@@ -6,7 +6,7 @@ export class NamedNumberAttributes{
     private _attributeNameList: string[] = []
 
     private attributeExists(name:string):boolean{
-        return this._attributes[name] === undefined
+        return this._attributes[name] !== undefined
     }
 
     public addAttribute(name: string, attr:NumberAttribute) {

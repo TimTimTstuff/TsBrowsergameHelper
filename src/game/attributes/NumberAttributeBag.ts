@@ -1,16 +1,17 @@
 import { NumberAttribute, NumberAttributeType } from './NumberAttribute'
 
 export class NumberAttributeBag {
-    getValue(): number {
-        return this._calculatedValue
-    }
-
-    getAttributeList():NumberAttribute[] {
-        return this._values
-    }
 
     private _values : NumberAttribute[] = []
     private _calculatedValue : number = 0;
+
+    public getValue(): number {
+        return this._calculatedValue
+    }
+
+    public getAttributeList():NumberAttribute[] {
+        return this._values
+    }
 
     private calculateValue() : void {
         let baseValue:number = 0
