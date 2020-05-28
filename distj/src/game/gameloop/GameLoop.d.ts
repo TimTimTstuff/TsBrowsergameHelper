@@ -6,6 +6,7 @@ export declare class GameLoop {
     private _lastFrameTime;
     private _fixedUpdateTime;
     private _fixedUpdateElapsed;
+    private _frameId;
     /**
      * Time callers
      */

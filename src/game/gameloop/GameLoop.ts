@@ -8,7 +8,7 @@ export class GameLoop {
     private _lastFrameTime: number
     private _fixedUpdateTime: number
     private _fixedUpdateElapsed:number = 0
-
+    private _frameId: number = -1
     /**
      * Time callers
      */
@@ -25,7 +25,7 @@ export class GameLoop {
         this._lastFrameTime = 0
         this._fixedUpdateTime = fixedUpdateTime
         console.log('Start Game loop')
-        this.callRequestFrame()
+        
     }
 
     /**
@@ -57,11 +57,15 @@ export class GameLoop {
     }
 
     public start() {
+        this._lastFrameTime = 0
+        this._fixedUpdateElapsed = 0
         this._running = true
+        this.callRequestFrame()
     }
 
     public stop() {
         this._running = false
+        cancelAnimationFrame(this._frameId)
     }
 
     private runUpdate() {
@@ -87,7 +91,7 @@ export class GameLoop {
      * Recursive update calling
      */
     private callRequestFrame() {
-        requestAnimationFrame((time) => {
+       this._frameId = requestAnimationFrame((time) => {
             if (this._running) {
                 GameLoop.deltaTime = Math.round((time - this._lastFrameTime) * 1000) / 1000
                 GameLoop.totalTime = time

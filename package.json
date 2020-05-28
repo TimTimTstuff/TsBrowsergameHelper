@@ -1,6 +1,6 @@
 {
   "name": "@timtimtstuff/tstuffgametools",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Browsergame tools",
   "main": "distj/index.js",
   "types": "distj/index.d.ts",

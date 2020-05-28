@@ -10,12 +10,12 @@ class GameLoop {
          */
         this._running = false;
         this._fixedUpdateElapsed = 0;
+        this._frameId = -1;
         this._updateCallList = [];
         this._fixedUpdateCallList = [];
         this._lastFrameTime = 0;
         this._fixedUpdateTime = fixedUpdateTime;
         console.log('Start Game loop');
-        this.callRequestFrame();
     }
     /**
      *
@@ -42,10 +42,10 @@ class GameLoop {
         this._fixedUpdateCallList[index] = null;
     }
     start() {
-        this._running = true;
+        this.callRequestFrame();
     }
     stop() {
-        this._running = false;
+        cancelAnimationFrame(this._frameId);
     }
     runUpdate() {
         if (this._fixedUpdateElapsed >= this._fixedUpdateTime) {
@@ -65,7 +65,7 @@ class GameLoop {
      * Recursive update calling
      */
     callRequestFrame() {
-        requestAnimationFrame((time) => {
+        this._frameId = requestAnimationFrame((time) => {
             if (this._running) {
                 GameLoop.deltaTime = Math.round((time - this._lastFrameTime) * 1000) / 1000;
                 GameLoop.totalTime = time;

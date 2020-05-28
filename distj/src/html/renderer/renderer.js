@@ -30,7 +30,6 @@ class Renderer {
             console.log('Cant find element');
             return;
         }
-        console.log(el.tagName);
         if (el.tagName.toLowerCase() == 'input' || el.tagName.toLowerCase() == 'select') {
             el.value = value;
         }
@@ -47,7 +46,6 @@ class Renderer {
             console.log('Cant find elements');
             return;
         }
-        console.log(elList);
         elList.forEach(el => {
             if (type === HtmlEvents.Click) {
                 el.addEventListener('click', (e => action(e)));
